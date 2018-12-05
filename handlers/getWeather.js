@@ -1,18 +1,24 @@
 const axios = require('axios');
+const weather = require('yahoo-weather');
 
 
 exports.fetchWeather = async (req, res, next) => { 
 
     const {city} = req.body;
-    console.log(city);
-    const searchtext =
-    "select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text='" +
-    city + "') and u='f'";
-
+    
+      console.log("server", city)
       try {
-        const weatherObj = await axios.get("https://query.yahooapis.com/v1/public/yql?q=" + searchtext + "&format=json");
-  
-        return res.status(200).json(weatherObj);
+        
+        const weatherObj = await weather(city, 'f');
+        
+        // console.log( JSON.stringify(condition.temp));
+        console.log(weatherObj.item.condition.temp)
+        const fullWeatherObj={
+          temp:weatherObj.item.condition.temp,
+          forecast:weatherObj.item.forecast
+        }
+
+        return res.status(200).send(fullWeatherObj);
 
       } catch (err) {
         return next({

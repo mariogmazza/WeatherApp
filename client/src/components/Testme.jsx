@@ -1,5 +1,5 @@
 import React from "react";
-import { Input } from "semantic-ui-react";
+// import { Input } from "semantic-ui-react";
 import {connect} from 'react-redux'
 
 const mapState=(state)=>({
@@ -13,15 +13,10 @@ class Testme extends React.Component {
     };
   }
 
-  componentWillMount(){
-   console.log(this.props.data);
-  }
-
-
   render() {
     return (
       <React.Fragment>
-        <h1>test</h1>
+        {this.props.data ? <h1>{this.props.data.temp}</h1> : <h1>nothing</h1>}  
       </React.Fragment>
     );
   }
