@@ -1,7 +1,13 @@
 import React from "react";
+import {connect} from 'react-redux'
 import PlacesAutocomplete from "react-places-autocomplete";
+import {loadWeather} from '../redux/actions/getWeatherAction'
 
 import { Input } from "semantic-ui-react";
+
+const actions={
+  loadWeather
+}
 
 class LocationSearchInput extends React.Component {
   constructor(props) {
@@ -22,6 +28,8 @@ class LocationSearchInput extends React.Component {
     this.setState({ selectedCity: address });
 
     console.log(address.split(",")[0]);
+    this.props.loadWeather(address.split(',')[0]);
+  
   };
 
   render() {
@@ -77,4 +85,4 @@ class LocationSearchInput extends React.Component {
   }
 }
 
-export default LocationSearchInput;
+export default connect({},actions)(LocationSearchInput);

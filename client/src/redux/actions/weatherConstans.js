@@ -1,0 +1,4 @@
+export const ADD_ERROR = 'ADD_ERROR';
+export const REMOVE_ERROR = 'ERROR_REMOVE';
+
+export const GET_WEATHER = 'GET_WEATHER';
