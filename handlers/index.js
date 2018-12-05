@@ -12,7 +12,7 @@ module.exports.errors = (err, req, res, next) => {
 }
 
 module.exports.notFound = (req, res, next) => {
-    const err = new Error("Not found");
+    const err = new Error("Not found pepe");
     err.status = 404;
 
     next(err); 
