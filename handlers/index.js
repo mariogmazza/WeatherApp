@@ -1,5 +1,5 @@
 module.exports = {
-    ...require('./getRandomMovie')
+    ...require('./getWeather')
 }
 
 module.exports.errors = (err, req, res, next) => {

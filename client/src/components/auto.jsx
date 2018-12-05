@@ -5,6 +5,8 @@ import {loadWeather} from '../redux/actions/getWeatherAction'
 
 import { Input } from "semantic-ui-react";
 
+const mapState=(state)=>({})
+
 const actions={
   loadWeather
 }
@@ -83,6 +85,6 @@ class LocationSearchInput extends React.Component {
       </React.Fragment>
     );
   }
-}
+} 
 
-export default connect({},actions)(LocationSearchInput);
+export default connect(mapState,actions)(LocationSearchInput);

@@ -1,31 +1,30 @@
 import React from "react";
 import { Input } from "semantic-ui-react";
+import {connect} from 'react-redux'
 
-class InputExampleLeftLoading extends React.Component {
+const mapState=(state)=>({
+  data:state.getWeather.data
+})
+
+class Testme extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: false
     };
   }
 
-  handleclick=()=> {
-    this.setState({ isLoading : true });
+  componentWillMount(){
+   console.log(this.props.data);
   }
 
 
   render() {
     return (
       <React.Fragment>
-        <Input
-          loading={this.state.isLoading} 
-          iconPosition="right"
-          placeholder="Search..."
-        />
-        <button onClick={this.handleclick}>get me</button>
+        <h1>test</h1>
       </React.Fragment>
     );
   }
 }
 
-export default InputExampleLeftLoading;
+export default connect(mapState)(Testme);

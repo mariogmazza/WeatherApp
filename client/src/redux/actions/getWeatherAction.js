@@ -11,10 +11,10 @@ export const changeWeather =(newWeather)=>({
 
 
 export const loadWeather = (city) => {
-
+  console.log(city);
   return async dispatch => {
     try {
-      const  {...weatherObj} = await api.call('get','getweather/', city);
+      const  {...weatherObj} = await api.call('post','getweather/', city);
 
         dispatch(changeWeather(weatherObj)) 
         dispatch(removeError())
