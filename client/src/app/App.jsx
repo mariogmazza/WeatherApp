@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import WeatherApp from '../containers/WeatherApp'
+import { Route, Switch, withRouter } from 'react-router-dom'
 
-class App extends Component {
-  render() {
+
+const App = () => {
     return (
-      <div className="App">
-       <WeatherApp />
-      </div>
+      <Switch>
+        <Route exact path='/' component={WeatherApp} />
+      </Switch>
     );
   }
-}
 
-export default App;
+export default withRouter(App);
