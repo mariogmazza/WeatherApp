@@ -1,5 +1,5 @@
 import React from 'react';
-import WeatherApp from '../containers/WeatherApp'
+import WeatherApp from '../containers//weatherapp/WeatherApp'
 import { Route, Switch, withRouter } from 'react-router-dom'
 
 
