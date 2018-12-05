@@ -21,7 +21,7 @@ app.use(bodyParser.urlencoded({
 app.use('/api/getweather', routes.getWeatherRoute);
 
 // app.use(handle.notFound)
-app.use(handle.errors)
+// app.use(handle.errors) 
 
 
 
