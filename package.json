@@ -19,10 +19,14 @@
     "type": "git",
     "url": "git+https://github.com/mariogmazza/WeatherApp.git"
   },
-  "author": "",
+  "author": "Mario Mazza",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mariogmazza/WeatherApp/issues"
   },
-  "homepage": "https://github.com/mariogmazza/WeatherApp#readme"
-}
+  "headers": {
+    "/**": {
+      "Access-Control-Allow-Origin": "*"
+    }
+  }
+} 
