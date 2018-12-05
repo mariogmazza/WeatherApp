@@ -17,9 +17,9 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-app.get('/',(req, res)=>{
-  res.send("I'm working")
-})
+// app.get('/',(req, res)=>{
+//   res.send("I'm working")
+// })
 
 
 app.use('/api/getweather', routes.getWeatherRoute);
