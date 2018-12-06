@@ -1,17 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import cloudy from '../../assets/cloudy.svg';
-import drop from '../../assets/drop.svg';
+import cloudy from "../../assets/cloudy.svg";
+import drop from "../../assets/drop.svg";
 import sun from "../../assets/sun.svg";
 import snowy from "../../assets/snowflake.svg";
 import thunder from "../../assets/storm.svg";
-import tornado from '../../assets/tornado.svg'
-import forward from '../../assets/forward.svg'
-
-
-
-
-
+import tornado from "../../assets/tornado.svg";
+import forward from "../../assets/forward.svg";
+import PlaceInput from "../../components/PlaceInput";
 
 // TODO: Credit the icon makers
 // https://www.flaticon.com/packs/weather-set-2
@@ -32,24 +28,23 @@ class ForecastApp extends Component {
     if (this.props.imgCondition) {
       backImg = `url(${this.props.imgCondition})`;
       console.log(this.props.imgCondition);
-      if(this.props.imgCondition.includes("clearsky")){
-        iconImg=sun;
-      }else if(this.props.imgCondition.includes('snowy')){
-        iconImg=snowy;
-      }else if(this.props.imgCondition.includes('thounderstorm')){
-        iconImg=thunder;
-      }else if(this.props.imgCondition.includes('rainning')){
-        iconImg=drop;
-      }else if(this.props.imgCondition.includes('tornado')){
-        iconImg=tornado;
+      if (this.props.imgCondition.includes("clearsky")) {
+        iconImg = sun;
+      } else if (this.props.imgCondition.includes("snowy")) {
+        iconImg = snowy;
+      } else if (this.props.imgCondition.includes("thounderstorm")) {
+        iconImg = thunder;
+      } else if (this.props.imgCondition.includes("rainning")) {
+        iconImg = drop;
+      } else if (this.props.imgCondition.includes("tornado")) {
+        iconImg = tornado;
       }
     } else {
       backImg =
-        'url("https://images.unsplash.com/photo-1495460099476-135d23aadcb4?dpr=1&auto=format&fit=crop&w=1080&h=681&q=80&cs=tinysrgb&crop=")';
+        'url("https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")';
     }
 
     if (this.props.imgURL) {
-
       TEMP = this.props.imgURL.temp;
       condTEXT = this.props.imgURL.condition.text;
     }
@@ -66,29 +61,24 @@ class ForecastApp extends Component {
           }}
         >
           <div className="temp_display">
-          { !TEMP ?
-          <div className="header_display">
-          <div>Welcome to your personal Weather App </div>
-          <p>You can start by searching for a place </p> 
-          <span><img
-              src={forward}
-              style={{ width: "28%", marginLeft: "70%" }}
-              alt=""
-            /></span>
-          </div> : '' }
-            
+            {!TEMP ? (
+              <div className="header_display">
+                <div>Welcome to your personal Weather App </div>
+                <p>You can start by searching for a place </p>
+                <PlaceInput />
+              </div>
+            ) : (
+              <div className="input_custom">
+                <PlaceInput />
+              </div>
+            )}
+
             <br />
             <div>{condTEXT}</div>
             <br />
             <br />
             <br />
-
-            <img
-              src={iconImg}
-              style={{ width: "40%", marginLeft: "82px" }}
-              alt=""
-            />
-
+            <img src={iconImg} style={{ width: "80px" }} alt="" />
             <br />
             <br />
             <br />

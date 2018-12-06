@@ -4,7 +4,7 @@ import thunk from 'redux-thunk'
 // import { composeWithDevTools } from 'redux-devtools-extension'
 
 
-const DEFAULT_STATE = {city:"Miami"}; 
+const DEFAULT_STATE = {}; 
 
  const configureStore = createStore( rootReducer, DEFAULT_STATE,
   compose( applyMiddleware(thunk) ),

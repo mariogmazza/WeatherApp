@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 
 // import Testme from "../components/Testme";
 import ForecastApp from "../forecaster/ForecastApp";
-import PlaceInput from "../../components/PlaceInput";
 
 const mapState = state => ({
   imgCondition: state.newImg.data
@@ -16,7 +15,7 @@ class WeatherApp extends Component {
     if(this.props.imgCondition){
       backImg=  `url(${this.props.imgCondition})`
     }else{
-      backImg='url("https://images.unsplash.com/photo-1495460099476-135d23aadcb4?dpr=1&auto=format&fit=crop&w=1080&h=681&q=80&cs=tinysrgb&crop=")';
+      backImg='url("https://images.unsplash.com/photo-1428908728789-d2de25dbd4e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80")';
     }
     return (
       <main>
@@ -31,9 +30,7 @@ class WeatherApp extends Component {
         >
           </div>
           <ForecastApp />
-          <div className="input_custom">
-            <PlaceInput />
-         </div>
+      
       </main>
     );
   }

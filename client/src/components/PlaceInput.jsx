@@ -51,7 +51,7 @@ class PlaceInput extends React.Component {
                   loading: this.state.isLoading,
                   fluid:true,
                   transparent:true,
-                  size:'huge'
+                  size:'big'
 
                 })}
                 value={
@@ -68,8 +68,8 @@ class PlaceInput extends React.Component {
                     : "suggestion-item";
                   // inline style for demonstration purpose
                   const style = suggestion.active
-                    ? { backgroundColor: '#1d1d2140', cursor: 'pointer' }
-                    : { backgroundColor: '#1d1d2100', cursor: 'pointer' };
+                    ? { backgroundColor: 'rgba(19, 16, 16, 0.041)', cursor: 'pointer', fontSize:'2vw' }
+                    : { backgroundColor: '#1d1d2100', cursor: 'pointer',fontSize:'2vw',textShadow:' 1px 3px 1px #767676' };
 
                   return (
                     <div
