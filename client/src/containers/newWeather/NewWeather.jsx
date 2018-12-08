@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "./NewWeather.css";
-import PINIMG from "../../assets/img/pin.svg";
+import PINIMG from "../../assets/img/placeholder.svg";
 import PlaceInput from "../../components/PlaceInput";
 import {
   loadWeather,
@@ -11,7 +11,6 @@ import {
 import setIcon from "../../services/setIcon";
 import WeekForecast from "../../components/WeekForecast";
 import _ from "lodash";
-import Media from "react-media";
 
 const mapState = state => ({
   cityname: state.cityname.data,
@@ -25,9 +24,6 @@ const actions = {
 };
 
 class NewWeather extends Component {
-  state = {
-    selectedCity: ""
-  };
   componentDidMount = () => {
     if (!this.props.todayTemp) {
       console.log("Im being called");
@@ -35,16 +31,6 @@ class NewWeather extends Component {
       this.props.getCityName("orlando");
     }
   };
-
-  updateInputValue(evt) {
-    this.setState({
-      selectedCity: evt.target.value
-    });
-
-    this.props.changeWeather({});
-    this.props.loadWeather(this.state.selectedCity); //city name
-    this.props.getCityName(this.state.selectedCity);
-  }
 
   render() {
     const { cityname, todayTemp } = this.props;
@@ -64,21 +50,7 @@ class NewWeather extends Component {
 
         <div className="main-grid">
           <div className="main-display">
-            <Media query="(max-width: 900px)">
-              {matches =>
-                matches ? (
-                  <input
-                    onChange={e => this.updateInputValue(e)}
-                    value={this.state.selectedCity}
-                    placeholder="City?.."
-                    class="input-search"
-                    type="text"
-                  />
-                ) : (
-                  <PlaceInput />
-                )
-              }
-            </Media>
+            <PlaceInput />
 
             <div className="icon-cityname">
               <img
