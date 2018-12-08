@@ -48,9 +48,15 @@ grid-area: input;
     background-color: transparent;
     z-index: 10000;
     border: none;
-    color: #607D8B;
+    color: rgb(219, 220, 221);
     outline: none;
 }
+
+::placeholder {
+    color: rgb(131, 130, 130);
+    z-index: 10009;
+}
+
 .icon-cityname{
     grid-area: icon;
     margin: 0 auto;
@@ -119,7 +125,7 @@ background-color: rgba(255,255,255,0.4);
 
     <div class="main-grid">
         <div class="main-display">
-            <input class='input-search' type="text" />
+            <input placeholder="Orlando..." class='input-search' type="text" />
             <div class="icon-cityname">
                 <img placeholder="Where do you live?" src="./client/src/assets/pin.svg" style='width: 30px; height: 40px;'
                     alt="">

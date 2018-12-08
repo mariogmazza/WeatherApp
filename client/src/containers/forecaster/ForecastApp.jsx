@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import cloudy from "../../assets/cloudy.svg";
-import drop from "../../assets/drop.svg";
-import sun from "../../assets/sun.svg";
-import snowy from "../../assets/snowflake.svg";
-import thunder from "../../assets/storm.svg";
-import tornado from "../../assets/tornado.svg";
-import forward from "../../assets/forward.svg";
+// import cloudy from "../../assets/img/cloudy.svg";
+import drop from "../../assets/img/drop.svg";
+import sun from "../../assets/img/sun.svg";
+import snowy from "../../assets/img/snowflake.svg";
+import thunder from "../../assets/img/storm.svg";
+import tornado from "../../assets/img/tornado.svg";
+// import forward from "../../assets/img/forward.svg";
 import PlaceInput from "../../components/PlaceInput";
 
 // TODO: Credit the icon makers

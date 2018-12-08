@@ -1,11 +1,13 @@
 import { combineReducers } from "redux";
 import getWeatherReducer from "./getWeatherReducer";
-import newImg from './imgChangerReducer'
+import iconImg from './imgChangerReducer'
+import cityname from './getCityNameReducer'
 
  
 const rootReducer = combineReducers({
   getWeather:getWeatherReducer,
-  newImg
+  iconImg,
+  cityname
 });
 
 export default rootReducer;
