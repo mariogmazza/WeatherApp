@@ -3,10 +3,14 @@ import { connect } from "react-redux";
 import "./NewWeather.css";
 import PINIMG from "../../assets/img/pin.svg";
 import PlaceInput from "../../components/PlaceInput";
-import { loadWeather, getCityName, changeWeather } from "../../redux/actions/getWeatherAction";
+import {
+  loadWeather,
+  getCityName,
+  changeWeather
+} from "../../redux/actions/getWeatherAction";
 import setIcon from "../../services/setIcon";
 import WeekForecast from "../../components/WeekForecast";
-import _ from 'lodash';
+import _ from "lodash";
 import Media from "react-media";
 
 const mapState = state => ({
@@ -21,10 +25,9 @@ const actions = {
 };
 
 class NewWeather extends Component {
-
-  state={
+  state = {
     selectedCity: ""
-  }
+  };
   componentDidMount = () => {
     if (!this.props.todayTemp) {
       console.log("Im being called");
@@ -33,40 +36,21 @@ class NewWeather extends Component {
     }
   };
 
-
-  // handleChange = (e, address )=> {
-  //   e.preventDefault()
-  //   this.setState({selectedCity: address });
-  //   this.props.changeWeather({})
-  //   this.props.loadWeather(address); //city name
-  //   this.props.getCityName(address);
-  // };
-
   updateInputValue(evt) {
     this.setState({
       selectedCity: evt.target.value
     });
 
-    this.props.changeWeather({})
+    this.props.changeWeather({});
     this.props.loadWeather(this.state.selectedCity); //city name
     this.props.getCityName(this.state.selectedCity);
   }
-
-  // handleSelect = address => {
-  // console.log(address)
-  //   this.props.changeWeather({})
-  //   this.props.loadWeather(address); //city name
-  //   this.props.getCityName(address);
-  // };
 
   render() {
     const { cityname, todayTemp } = this.props;
     let CURR_TEMP;
     let WEEK_FORECAST;
     let TODAY_ICON;
-
-    // console.log(Object.keys(todayTemp).length === 0 );
-
 
     if (!_.isEmpty(todayTemp)) {
       TODAY_ICON = setIcon(todayTemp.condition.code);
@@ -80,16 +64,21 @@ class NewWeather extends Component {
 
         <div className="main-grid">
           <div className="main-display">
-
-          <Media query="(max-width: 900px)">
-          {matches =>
-            matches ? (
-              <input onChange={e => this.updateInputValue(e)} value={this.state.selectedCity} placeholder="City?.." class='input-search' type="text" />
-              ) : (
-            <PlaceInput />
-            )
-          }
-        </Media>
+            <Media query="(max-width: 900px)">
+              {matches =>
+                matches ? (
+                  <input
+                    onChange={e => this.updateInputValue(e)}
+                    value={this.state.selectedCity}
+                    placeholder="City?.."
+                    class="input-search"
+                    type="text"
+                  />
+                ) : (
+                  <PlaceInput />
+                )
+              }
+            </Media>
 
             <div className="icon-cityname">
               <img
@@ -104,16 +93,28 @@ class NewWeather extends Component {
 
           <div className="sevenday-forecast">
             <div className="big-temp">
-              <span className="today-date" style={{fontSize:'2em',fontWeight:'bold', marginTop:'5px'}}>TODAY</span>
-              <br/>
-              <br/>
-              <br/>
-                  <i className={`${TODAY_ICON} seven-icon-big `} />
-                  <br/>
-                  <br/>
-                  <span className="temp-big" style={{fontSize:'2em',fontWeight:'bold'}}>
-                    {CURR_TEMP ? CURR_TEMP : "N/A"}
-                  </span>
+              <span
+                className="today-date"
+                style={{
+                  fontSize: "2em",
+                  fontWeight: "bold",
+                  marginTop: "5px"
+                }}
+              >
+                TODAY
+              </span>
+              <br />
+              <br />
+              <br />
+              <i className={`${TODAY_ICON} seven-icon-big `} />
+              <br />
+              <br />
+              <span
+                className="temp-big"
+                style={{ fontSize: "2em", fontWeight: "bold" }}
+              >
+                {CURR_TEMP ? CURR_TEMP : "N/A"}
+              </span>
             </div>
 
             {WEEK_FORECAST
