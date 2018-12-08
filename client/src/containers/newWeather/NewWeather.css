@@ -135,7 +135,9 @@
         grid-column: span 3;
     }
 
-
+.container-main{
+    height: 214vh;
+}
 .main-display {
     display: grid;
     grid-template-areas:
@@ -150,7 +152,7 @@
 }
 
 .cityname{
-    font-size: 2.5vw;
+    font-size: 4.5vw;
     font-weight: bold;
     color: white;
 }
