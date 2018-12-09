@@ -26,7 +26,6 @@ const actions = {
 class NewWeather extends Component {
   componentDidMount = () => {
     if (!this.props.todayTemp) {
-      console.log("Im being called");
       this.props.loadWeather("orlando");
       this.props.getCityName("orlando");
     }
@@ -85,7 +84,7 @@ class NewWeather extends Component {
                 className="temp-big"
                 style={{ fontSize: "2em", fontWeight: "bold" }}
               >
-                {CURR_TEMP ? CURR_TEMP : "N/A"}
+                {CURR_TEMP ? `${CURR_TEMP} F `: "N/A"}
               </span>
             </div>
 

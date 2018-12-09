@@ -26,16 +26,9 @@ export const getCityName =(cityname)=>({
 
 export const loadWeather = (city) => { 
 
-  console.log("loadWeather ", city);
-
   return async dispatch => {
     try {
       const  {...weatherObj} = await api.call('post','getweather', {city});
-        // const iconClass=iconPicker(weatherObj.condition.code)
-        // console.log("img icon", iconClass )
-        // console.log('loadweather', weatherObj);
-
-        // dispatch(changeImg(iconClass))
         dispatch(changeWeather(weatherObj)) 
         dispatch(removeError())
     } catch (err) {

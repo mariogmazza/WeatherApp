@@ -1,5 +1,4 @@
 export default function iconPicker(code) {
-  console.log("iconPicker code", code)
   let icon = '';
   switch (code) {
     case '0':

@@ -1,7 +1,6 @@
 import React from "react";
 
 function WeekForecast({ day, icon, high, low, text }) {
-  console.log(text.split(" "));
   return (
     <div>
       <span>{` ${high}F`}</span>
@@ -10,13 +9,13 @@ function WeekForecast({ day, icon, high, low, text }) {
       <i className={`${icon} seven-icon-small `} />
       <br />
       <br />
-      <span class="temp-small">{day}</span>
+      <span className="temp-small">{day}</span>
       <br />
       <br />
       <span>{text.split(" ")[0]}</span>
       <br />
       <br />
-      {text.split("")[1] ? <span>{text.split(" ")[1]}</span> : ""}
+      {text.split(" ")[1] ? <span>{text.split(" ")[1]}</span> : ""}
     </div>
   );
 }
