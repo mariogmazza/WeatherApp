@@ -80,14 +80,16 @@ class PlaceInput extends React.Component {
                         cursor: "pointer",
                         fontSize: "2.3vw",
                         color: "white",
-                        paddingBottom: "3px"
+                        paddingBottom: "3px",
+                        display:'none'
                       }
                     : {
                         backgroundColor: "#1d1d2100",
                         color: "white",
                         cursor: "pointer",
                         fontSize: "2vw",
-                        padding: "5px"
+                        padding: "5px",
+                        display:'none'
                       };
 
                   return (
